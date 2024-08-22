@@ -1,0 +1,35 @@
+{
+    "model_single": {
+        "Models": "Model_single",
+        "n_conv": "2",
+        "hidden_dim": "32",
+        "n_fcn": "3",
+        "fcn_dim": "64",
+        "aggregator_type": "pool",
+        "feat_prob": "0.25",
+        "prob": "0.25",
+        "lr": "0.001"
+    },
+    "model_multi": {
+        "Models": "Model_multi",
+        "n_conv": "3",
+        "hidden_dim": "32",
+        "n_fcn": "3",
+        "fcn_dim": "64",
+        "aggregator_type": "mean",
+        "feat_prob": "0.25",
+        "prob": "0.25",
+        "lr": "0.001"
+    },
+    "model_indel": {
+        "Models": "Model_indel",
+        "n_conv": "3",
+        "hidden_dim": "64",
+        "n_fcn": "2",
+        "fcn_dim": "32",
+        "aggregator_type": "mean",
+        "feat_prob": "0.25",
+        "prob": "0.25",
+        "lr": "0.0001"
+    }
+}
