@@ -1,1 +1,46 @@
+# using prot_t5 model to get amino acids embedding as node feature
+function read_node_feature(sequence)
+    node_feature = Prot_t5_EmbeddingExtraction(sequence)
+    return node_feature
+end function
 
+# using SPOT-Contact-LM model to get Amino Acid Residue Contact Probability Map
+function read_contact_map(sequence)
+	contact_prob_map = SPOT_Contact_LM_predict(sequence)
+	return contact_prob_map
+end function
+
+# generate_graph
+function graph_generation(contact_prob_map, cutoff, node_feature)
+    adjacency_matrix = write_adjacency_matrix(contact_prob_map, cutoff)
+	edge_feature_matrix = write_edge_feature_matrix(contact_prob_map)
+    graph = write_graph(adjacency_matrix, node_feature, edge_feature_matrix)
+    return graph
+end function
+
+# ProteinRegressionModel
+function ProteinRegressionModel(n_conv, m_fcn, graph_wild, graph_mutated)
+	for i = 1 to n_conv:
+		node_feature_wild = Convolution(graph_wild, graph_wild.node_feature, graph_wild.edge_feature)
+		node_feature_wild  = LayerNorm(node_feature_wild)
+		node_feature_wild  = Activation(node_feature_wild)
+		node_feature_wild  = Dropout(node_feature_wild)
+	end for
+	for i = 1 to n_conv:
+		node_feature_mutated = Convolution(graph_mutated, graph_mutated.node_feature, graph_mutated.edge_feature)
+		node_feature_mutated  = LayerNorm(node_feature_mutated)
+		node_feature_mutated  = Activation(node_feature_mutated)
+		node_feature_mutated  = Dropout(node_feature_mutated)
+	end for
+	node_feature_wild_mean = Pooling(node_feature_wild)
+	node_feature_mutated_mean = Pooling(node_feature_mutated)
+	embedding = Concatenate(node_feature_wild_mean, node_feature_mutated_mean)
+	for i = 1 to m_fcn:
+        embedding = Linear(embedding)
+		embedding = LayerNorm(embedding)
+        embedding = Activation(embedding)
+        embedding = Dropout(embedding)
+	end for
+	ddg = Regression_linear(embedding)
+	return ddg
+end function
