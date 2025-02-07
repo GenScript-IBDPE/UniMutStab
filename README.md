@@ -17,4 +17,5 @@ By Gen Li, Sijie Yao, Long Fan
 | P04925      | PrP                | Insertion and deletion  mutation blind test | 12            | 1              | 10.1021/bi982714g                                                                                             |
 # Methodology
 For details on UniMutStab training and testing, please see the accompanying paper(coming soon).
-# Code
+# Citing this work
+Coming soon.
