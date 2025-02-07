@@ -1,4 +1,4 @@
-# UniMutStab
+![image](https://github.com/user-attachments/assets/25e42824-8861-42fe-a4ed-cc5346e3dfae)# UniMutStab
 Shared-weight Graph Framework for Comprehensive Protein Stability Prediction across Diverse Mutation Types
 
 By Gen Li, Sijie Yao, Long Fan
@@ -15,6 +15,8 @@ By Gen Li, Sijie Yao, Long Fan
 | M218        | M218               | Multiple point mutation blind test          | 218           | 6              | is the data of selecting sequences that already contain mutations in the M38 dataset and mutating them again  |
 | P00720      | Endolysin          | Insertion and deletion  mutation blind test | 22            | 1              | 10.1006/jmbi.1994.1195                                                                                        |
 | P04925      | PrP                | Insertion and deletion  mutation blind test | 12            | 1              | 10.1021/bi982714g                                                                                             |
+| P00644      | Thermonuclease     | Insertion and deletion  mutation blind test | 4             | 1              | 10.1002/prot.10216                                                                                            |
+| Indels732   | Indels732          | Insertion and deletion  mutation blind test | 732           | 379            | Indels732 is a test set of 732 insertion/deletion samples selected from cDNA data that comply with the rule of less than 25% similarity with the training set.|
 # Methodology
 For details on UniMutStab training and testing, please see the accompanying paper(coming soon).
 # Citing this work
