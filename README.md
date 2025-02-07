@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/25e42824-8861-42fe-a4ed-cc5346e3dfae)# UniMutStab
+# UniMutStab
 Shared-weight Graph Framework for Comprehensive Protein Stability Prediction across Diverse Mutation Types
 
 By Gen Li, Sijie Yao, Long Fan
